@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Use a modern, clean font */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Style the header */
+        .header {
+            background-color: #333;
+            padding: 1rem 0;
+            border-bottom: 3px solid #ff6347;
+        }
+
+        /* Container to center content */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* Style the logo */
+      
+        .logo img {
+            height: 40px;
+        }
+
+        /* Style the navigation */
+        .navbar {
+            display: flex;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-item {
+            display: inline-block;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ff6347;
+        }
+
+        /* Responsive design: stack items on smaller screens */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar {
+                margin-top: 1rem;
+                width: 100%;
+            }
+
+            .nav-list {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+
+        }
+
+        /* Style for products section */
+        .container {
+            width: 90%;
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .products-section {
+            padding: 2rem 0;
+            background-color: #f8f8f8;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            margin-left: -100px;
+        }
+
+        .products-grid {
+            /* display: grid; */
+            gap: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .product-card {
+            width: 300px;
+            height: 430px;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 40%;
+            object-fit: cover;
+            /* height: auto; */
+            border-radius: 8px;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            margin: 1rem 0 0.5rem;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 90%;
+            height: 2.0rem;
+            margin:20px auto ;
+            white-space: nowrap;
+
+            
+        }
+
+        .product-description {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #ff6347;
+        }
+
+        .add-to-cart-button {
+            background-color: #ff6347;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart-button:hover {
+            background-color: #e5533d;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                margin-left: 0px;
+            }
+
+            .container {
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 1134px) {
+            .product-3 {
+                margin-top: 30px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="home.html"><img src="Awdp.png" alt="Logo"></a>
+            </div>
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <li class="nav-item"> <a class="nav-link" aria-current="page" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html" target="_blank">cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link logout" href="login.html">login</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="products-section">
+        <h1 class="section-title">Our Products</h1>
+        <div class="container">
+
+            <div class="products-grid ">
+
+            </div>
+        </div>
+    </section>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+<script>
+    let maindiv = document.querySelector(".products-grid")
+    let logout = document.querySelector(".logout");
+    let arr = JSON.parse(localStorage.getItem("prodect")) || [];
+
+    let divfuntion = (e) => {
+maindiv.innerHTML="";
+        arr.forEach((ele, index) => {
+            let div = document.createElement("div");
+            div.classList.add("product-card")
+            let img = document.createElement("img");
+            img.classList.add("product-image")
+            let name = document.createElement("h1");
+            name.classList.add("product-title")
+            let price = document.createElement("p");
+            price.classList.add("product-price")
+            let category = document.createElement("p");
+            category.classList.add("product-description")
+            let btn = document.createElement("button");
+            btn.classList.add("add-to-cart-button")
+            img.src = "https://media.istockphoto.com/id/1460651564/photo/indian-men-latest-fashion-shirts-in-display-retail-shop-in-market-traditional-wear-for-men.jpg?b=1&s=612x612&w=0&k=20&c=0XRJxilNMxZd1rDrQ1uQUEEKNWxDsKBiWCZJzuQpSdg=";
+            name.innerText = ele.title;
+            price.innerText = ele.price;
+            category.innerText = ele.category;
+            btn.innerText = "remove"
+            btn.addEventListener("click", () => {
+                arr.splice(index, 1);
+                console.log(arr);
+                localStorage.setItem("prodect", JSON.stringify(arr));
+                divfuntion();
+            });
+            div.append(img, name, price, category, btn);
+            maindiv.append(div);
+        })
+    }
+
+    logout.addEventListener("click", () => {
+        localStorage.removeItem("conter");
+        window.location.href = "login.html";
+    })
+    divfuntion();
+</script>
+
+</html>
